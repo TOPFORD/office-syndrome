@@ -106,6 +106,9 @@ def start_completion_timer():
     window.destroy()
     completion_timer.start_and_restart()
 
+# เพิ่มการโหลดเสียงใหม่
+start_sound = pygame.mixer.Sound("1112.MP3")
+
 def start_pose_detection():
     global is_running, start_time, current_repeats, completed_time, current_pose
     is_running = True
@@ -113,7 +116,9 @@ def start_pose_detection():
     current_repeats = 0
     completed_time = None
     current_pose = 1  # รีเซ็ตท่าปัจจุบันเมื่อเริ่มใหม่
+    start_sound.play()  # เล่นเสียงจากไฟล์ V2.MP3
     update_frame()
+
 
 def update_frame():
     global start_time, is_running, current_pose, current_repeats, completed_time
